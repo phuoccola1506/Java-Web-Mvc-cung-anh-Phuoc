@@ -1,4 +1,4 @@
-package binh.dev.data.model;
+package phuoc.dev.data.model;
 
 public class User {
 	private int id;

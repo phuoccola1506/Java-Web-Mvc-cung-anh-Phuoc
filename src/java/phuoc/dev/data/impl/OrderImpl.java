@@ -1,4 +1,4 @@
-package binh.dev.data.impl;
+package phuoc.dev.data.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import binh.dev.data.dao.OrderDao;
-import binh.dev.data.driver.MySQLDriver;
-import binh.dev.data.model.Order;
+import phuoc.dev.data.dao.OrderDao;
+import phuoc.dev.data.driver.MySQLDriver;
+import phuoc.dev.data.model.Order;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 

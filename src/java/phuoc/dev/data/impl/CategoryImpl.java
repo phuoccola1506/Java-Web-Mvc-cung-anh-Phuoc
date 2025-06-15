@@ -1,4 +1,4 @@
-package binh.dev.data.impl;
+package phuoc.dev.data.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import binh.dev.data.dao.CategoryDao;
-import binh.dev.data.driver.MySQLDriver;
-import binh.dev.data.model.Category;
+import phuoc.dev.data.dao.CategoryDao;
+import phuoc.dev.data.driver.MySQLDriver;
+import phuoc.dev.data.model.Category;
 
 public class CategoryImpl implements CategoryDao {
 
@@ -110,12 +110,12 @@ public class CategoryImpl implements CategoryDao {
     }
 
     @Override
-    public List<Category> hotCategory() {
+    public List<Category> hotCategory(int limit) {
         List<Category> cateList = new ArrayList<>();
-        String sql = "SELECT * FROM CATEGORIES LIMIT 4";
+        String sql = "SELECT * FROM CATEGORIES ORDER BY VIEW DESC LIMIT ?";
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
-
+            stmt.setInt(1, limit);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");

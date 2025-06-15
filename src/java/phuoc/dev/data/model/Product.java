@@ -1,6 +1,6 @@
-package binh.dev.data.model;
+package phuoc.dev.data.model;
 
-import binh.dev.data.dao.DatabaseDao;
+import phuoc.dev.data.dao.DatabaseDao;
 import java.sql.Timestamp;
 
 public class Product {
@@ -119,7 +119,7 @@ public class Product {
         this.createdAt = createdAt;
     }
 
-    public Category getCategory(){
+    public Category getCategory() {
         return DatabaseDao.getInstance().getCategoryDao().find(this.categoryId);
     }
 }

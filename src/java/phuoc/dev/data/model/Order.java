@@ -1,6 +1,6 @@
-package binh.dev.data.model;
+package phuoc.dev.data.model;
 
-import binh.dev.data.dao.DatabaseDao;
+import phuoc.dev.data.dao.DatabaseDao;
 import java.sql.Timestamp;
 
 public class Order {

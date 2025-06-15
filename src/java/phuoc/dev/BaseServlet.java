@@ -4,11 +4,10 @@
  */
 package phuoc.dev;
 
-import java.io.IOException;
+import phuoc.dev.data.dao.Database;
+import phuoc.dev.data.dao.DatabaseDao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -17,13 +16,8 @@ import jakarta.servlet.http.HttpServletResponse;
 public class BaseServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    public void init() throws ServletException {
+        DatabaseDao.init(new Database());
     }
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-    }
-    
 }

@@ -1,8 +1,8 @@
-package binh.dev.data.dao;
+package phuoc.dev.data.dao;
 
 import java.util.List;
 
-import binh.dev.data.model.Order;
+import phuoc.dev.data.model.Order;
 
 public interface OrderDao {
 

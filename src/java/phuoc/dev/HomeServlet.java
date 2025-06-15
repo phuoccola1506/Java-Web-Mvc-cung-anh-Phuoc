@@ -4,34 +4,61 @@
  */
 package phuoc.dev;
 
-import binh.dev.data.dao.CategoryDao;
-import binh.dev.data.dao.DatabaseDao;
-import binh.dev.data.model.Category;
+import phuoc.dev.data.dao.DatabaseDao;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import phuoc.dev.data.dao.CategoryDao;
+import phuoc.dev.data.dao.ProductDao;
+import phuoc.dev.data.model.Category;
+import phuoc.dev.data.model.Product;
 
 /**
  *
  * @author Admin
  */
-public class HomeServlet extends HttpServlet {
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        CategoryDao categoryDao = DatabaseDao.getInstance().getCategoryDao();
-        List<Category> categoryList = categoryDao.findAll();
-        
-        req.setAttribute("CategoryList", categoryList);
-        req.getRequestDispatcher("home.jsp").include(req, resp);
-    }
+public class HomeServlet extends BaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        ProductDao productDao = DatabaseDao.getInstance().getProductDao();
+        List<Product> hotProductList = productDao.hot(8);
+        List<Product> newProductList = productDao.news(8);
+
+        CategoryDao categoryDao = DatabaseDao.getInstance().getCategoryDao();
+
+        Map<Integer, String> categories = new HashMap<>();
+
+        for (Product p : hotProductList) {
+            int categoryId = p.getCategoryId();
+            if (!categories.containsKey(categoryId)) {
+                Category c = categoryDao.find(categoryId);
+                categories.put(categoryId, c.getName());
+            }
+        }
+
+        for (Product p : newProductList) {
+            int categoryId = p.getCategoryId();
+            if (!categories.containsKey(categoryId)) {
+                Category c = categoryDao.find(categoryId);
+                categories.put(categoryId, c.getName());
+            }
+        }
+
+        req.setAttribute("HotProductList", hotProductList);
+        req.setAttribute("NewProductList", newProductList);
+        req.setAttribute("Categories", categories);
+
+        req.getRequestDispatcher("home.jsp").include(req, resp);
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     }
 
 }

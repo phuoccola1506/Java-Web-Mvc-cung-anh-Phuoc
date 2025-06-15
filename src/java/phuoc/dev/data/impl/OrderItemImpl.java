@@ -1,4 +1,4 @@
-package binh.dev.data.impl;
+package phuoc.dev.data.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,9 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import binh.dev.data.dao.OrderItemDao;
-import binh.dev.data.driver.MySQLDriver;
-import binh.dev.data.model.OrderItem;
+import phuoc.dev.data.dao.OrderItemDao;
+import phuoc.dev.data.driver.MySQLDriver;
+import phuoc.dev.data.model.OrderItem;
 
 public class OrderItemImpl implements OrderItemDao {
 	Connection con = MySQLDriver.getInstance().getConnection();

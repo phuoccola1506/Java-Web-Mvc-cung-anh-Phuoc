@@ -1,4 +1,4 @@
-package binh.dev.data.impl;
+package phuoc.dev.data.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import binh.dev.data.dao.UserDAO;
-import binh.dev.data.driver.MySQLDriver;
-import binh.dev.data.model.User;
+import phuoc.dev.data.dao.UserDAO;
+import phuoc.dev.data.driver.MySQLDriver;
+import phuoc.dev.data.model.User;
 
 public class UserImpl implements UserDAO {
 

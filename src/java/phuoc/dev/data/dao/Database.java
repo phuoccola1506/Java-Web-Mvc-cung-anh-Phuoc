@@ -1,10 +1,10 @@
-package binh.dev.data.dao;
+package phuoc.dev.data.dao;
 
-import binh.dev.data.impl.CategoryImpl;
-import binh.dev.data.impl.OrderImpl;
-import binh.dev.data.impl.OrderItemImpl;
-import binh.dev.data.impl.ProductImpl;
-import binh.dev.data.impl.UserImpl;
+import phuoc.dev.data.impl.CategoryImpl;
+import phuoc.dev.data.impl.OrderImpl;
+import phuoc.dev.data.impl.OrderItemImpl;
+import phuoc.dev.data.impl.ProductImpl;
+import phuoc.dev.data.impl.UserImpl;
 
 public class Database extends DatabaseDao {
 

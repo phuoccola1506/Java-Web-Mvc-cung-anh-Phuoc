@@ -1,4 +1,4 @@
-package binh.dev.data.dao;
+package phuoc.dev.data.dao;
 
 public abstract class DatabaseDao {
 

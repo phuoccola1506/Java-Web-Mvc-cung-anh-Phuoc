@@ -1,4 +1,4 @@
-package binh.dev.data.impl;
+package phuoc.dev.data.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import binh.dev.data.dao.ProductDao;
-import binh.dev.data.driver.MySQLDriver;
-import binh.dev.data.model.Product;
-import binh.dev.util.Constants;
+import phuoc.dev.data.dao.ProductDao;
+import phuoc.dev.data.driver.MySQLDriver;
+import phuoc.dev.data.model.Product;
+import phuoc.dev.util.Constants;
 
 public class ProductImpl implements ProductDao {
     // gọi hàm kết nối csdl

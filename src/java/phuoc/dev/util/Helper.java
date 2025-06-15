@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package binh.dev.util;
+package phuoc.dev.util;
 
-import binh.dev.data.model.OrderItem;
+import phuoc.dev.data.model.OrderItem;
 import java.util.List;
 
 /**

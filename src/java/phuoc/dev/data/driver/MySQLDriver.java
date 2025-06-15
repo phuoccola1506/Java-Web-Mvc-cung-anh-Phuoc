@@ -1,10 +1,10 @@
-package binh.dev.data.driver;
+package phuoc.dev.data.driver;
 //Singleton
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import static binh.dev.util.Constants.*;
+import static phuoc.dev.util.Constants.*;
 
 public class MySQLDriver {
 	private static MySQLDriver instance;
