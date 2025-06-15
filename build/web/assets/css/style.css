@@ -1,0 +1,27 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jun 15, 2025, 9:33:30 PM
+    Author     : Admin
+*/
+
+.thumbnail-img {
+  width: 100%;           /* hoặc kích thước bạn muốn */
+  height: 200px;
+  object-fit: cover;      /* giữ tỷ lệ và cắt phần thừa */
+  border-radius: 8px;     /* tùy chọn: bo góc cho đẹp */
+}
+
+.truncate {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;       /* Giới hạn 1 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 1.2em;               /* Chiều cao tương đương 1 dòng */
+    line-height: 1.2em;          /* Đảm bảo đúng dòng */
+    max-width: 100%;
+}
+
