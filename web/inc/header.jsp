@@ -5,7 +5,10 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!-- Lấy servlet hiện tại -->
+<c:set var="page" value="${pageContext.request.servletPath}" />
+
 <!-- ***** Header Area Start ***** -->
 <header class="header-area header-sticky">
     <div class="container">
@@ -19,20 +22,23 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="HomeServlet" class="active">Home</a></li>
-                        <li><a href="ShopServlet">Our Shop</a></li>
-                        <li><a href="Categories">Categories</a></li>
-                        <li><a href="ContactServlet">Contact Us</a></li>
-                        <li>
+                        <li><a href="HomeServlet" class="${page == '/HomeServlet' ? 'active' : ''}"><strong>Home</strong></a></li>
+                        <li><a href="ShopServlet" class="${page == '/ShopServlet' ? 'active' : ''}"><strong>Our Shop</strong></a></li>
+                        <li><a href="CategoriesServlet" class="${page == '/CategoriesServlet' ? 'active' : ''}"><strong>Categories</strong></a></li>
+                        <li><a href="ContactServlet" class="${page == '/ContactServlet' ? 'active' : ''}"><strong>Contact Us</strong></a></li>
+                    </ul>   
+                    <ul class="nav">
+                        <li><a href="CartServlet" class="${page == '/CartServlet' ? 'active' : ''}"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                        <li class="login-logout">
                             <c:if test="${sessionScope.user == null}">
-                                <a href="LoginServlet">Sign In</a>
+                                <a href="LoginServlet" class="${page == '/LoginServlet' ? 'active' : ''}"><i class="fas fa-user"></i> Sign In</a>
                             </c:if>
                                 
                             <c:if test="${sessionScope.user != null}">
-                                <a href="LogoutServlet">Sign Out</a>
+                                <a href="LogoutServlet"><i class="fas fa-user"></i> Sign Out</a>
                             </c:if>
                         </li>
-                    </ul>   
+                    </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>

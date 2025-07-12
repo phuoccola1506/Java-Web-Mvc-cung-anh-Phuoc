@@ -8,10 +8,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 */
 
 .thumbnail-img {
-  width: 100%;           /* hoặc kích thước bạn muốn */
-  height: 200px;
-  object-fit: cover;      /* giữ tỷ lệ và cắt phần thừa */
-  border-radius: 8px;     /* tùy chọn: bo góc cho đẹp */
+    width: 100%;           /* hoặc kích thước bạn muốn */
+    height: 200px;
+    object-fit: cover;      /* giữ tỷ lệ và cắt phần thừa */
+    border-radius: 8px;     /* tùy chọn: bo góc cho đẹp */
 }
 
 .truncate {
@@ -25,3 +25,131 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     max-width: 100%;
 }
 
+.col-thumb {
+    width: 25% !important;
+}
+.col-name {
+    width: 20% !important;
+}
+.col-price {
+    width: 15% !important;
+}
+.col-qty {
+    width: 10% !important;
+}
+.col-subtotal {
+    width: 20% !important;
+}
+.col-action {
+    width: 10% !important;
+}
+
+.total {
+    font-size: 18px !important;
+}
+
+.login-logout a {
+    background-color: #ee626b !important;
+}
+
+.login-logout a:hover {
+    background-color: #0171f9 !important;
+}
+
+.otp-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.otp-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: none;
+    overflow: hidden;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    border: none;
+    padding: 2rem;
+}
+
+.qr-section {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.qr-code {
+    position: relative;
+    display: inline-block;
+}
+
+.qr-code img {
+    width: 220px !important;
+    height: 220px !important;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 3px solid #fff;
+}
+
+.secret-key {
+    background: #e9ecef;
+    border-radius: 10px;
+    padding: 1rem;
+    font-family: 'Courier New', monospace;
+    word-break: break-all;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 2px solid #e9ecef;
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 0 0.2rem rgba(79, 172, 254, 0.25);
+}
+
+.btn-verify {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-verify:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.step-indicator {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0 auto 1rem;
+}
+
+.feature-icon {
+    color: #4facfe;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}

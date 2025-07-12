@@ -12,13 +12,12 @@ import java.util.List;
  * @author Welcome
  */
 public class Helper {
-    public static double total(List<OrderItem> orderItemList){
+    public static double total(List<OrderItem> orderItemList) {
         double total = 0;
         for (int i = 0; i < orderItemList.size(); i++) {
-            OrderItem ord = orderItemList.get(0);
+            OrderItem ord = orderItemList.get(i); // ✅ sửa ở đây
             total += ord.getPrice() * ord.getQuantity();
         }
-        
         return total;
     }
 }

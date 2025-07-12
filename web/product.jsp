@@ -16,10 +16,10 @@
 
         <!-- Additional CSS Files -->
         <link rel="stylesheet" href="assets/css/fontawesome.css">
-        <link rel="stylesheet" href="assets/css/templatemo-lugx-gaming.css">
+        <link rel="stylesheet" href="assets/css/templatemo-lugx-gaming.css?v=2">
         <link rel="stylesheet" href="assets/css/owl.css">
         <link rel="stylesheet" href="assets/css/animate.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css?v=3">
         <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
         <!--
         
@@ -70,13 +70,12 @@
                         <h4>${product.name}</h4>
                         <span class="price"><em>$28</em> ${product.price}</span>
                         <p>${product.description}</p>
-                        <form action="CartServlet" method="post" class="d-flex gap-2">
+                        <form action="CartServlet" method="post">
+                            <input type="hidden" name="action" value="create">
                             <input type="hidden" name="productId" value="${product.id}">
                             <input type="hidden" name="price" value="${product.price}">
-                            <input type="number" name="quantity" class="form-control w-25" value="1" min="1">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fa fa-shopping-bag"></i> ADD TO CART
-                            </button>
+                            <input type="number" name="quantity" value="1" min="1">
+                            <button type="submit">Add to Cart</button>
                         </form>
                         <ul>
                             <li><span>Game ID:</span> ${product.id}</li>
@@ -140,7 +139,7 @@
                     <c:forEach var="product" items="${NewProductList}">
                         <div class="col-lg col-sm-6 col-xs-12">
                             <div class="item">
-                                <h4>${Categories[product.categoryId]}</h4>
+                                <h4>${product.name}</h4>
                                 <div class="thumb">
                                     <a href="ProductServlet?productId=${product.id}"><img src="${product.thumbnail}" alt="New Product Image" class="thumbnail-img"></a>
                                 </div>

@@ -17,10 +17,10 @@
 
         <!-- Additional CSS Files -->
         <link rel="stylesheet" href="assets/css/fontawesome.css">
-        <link rel="stylesheet" href="assets/css/templatemo-lugx-gaming.css">
+        <link rel="stylesheet" href="assets/css/templatemo-lugx-gaming.css?v=2">
         <link rel="stylesheet" href="assets/css/owl.css">
         <link rel="stylesheet" href="assets/css/animate.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css?v=3">
         <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
         <!--
         
@@ -101,7 +101,7 @@
                                     <span class="price">$${product.price}</span>
                                 </div>
                                 <div class="down-content">
-                                    <span class="category">${Categories[product.categoryId]}</span>
+                                    <span class="category">${category.name}</span>
                                     <h4 class="truncate" title="${product.name}">${product.name}</h4>
                                     <a href="ProductServlet?productId=${product.id}"><i class="fa fa-shopping-bag"></i></a>
                                 </div>

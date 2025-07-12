@@ -6,6 +6,7 @@ package phuoc.dev;
 
 import java.io.IOException;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ import phuoc.dev.data.model.Product;
  *
  * @author Admin
  */
+@WebServlet("/CategoryServlet")
 public class CategoryServlet extends BaseServlet {
 
     @Override

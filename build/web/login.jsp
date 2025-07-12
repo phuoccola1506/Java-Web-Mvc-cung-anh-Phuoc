@@ -14,10 +14,10 @@
 
         <!-- Additional CSS Files -->
         <link rel="stylesheet" href="assets/css/fontawesome.css">
-        <link rel="stylesheet" href="assets/css/templatemo-lugx-gaming.css">
+        <link rel="stylesheet" href="assets/css/templatemo-lugx-gaming.css?v=2">
         <link rel="stylesheet" href="assets/css/owl.css">
         <link rel="stylesheet" href="assets/css/animate.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css?v=3">
         <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
         <!--
         
@@ -30,9 +30,21 @@
 
     <body>
         <%@include file="./inc/header.jsp" %>
-        <div class="d-flex justify-content-center align-items-center min-vh-100 bg-primary">
-            <div class="wrapper alert alert-dark">
-                <form action="LoginServlet" method="post" class="p-3 pt-1 text-light">
+        
+        <div class="page-heading header-text">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3>Login</h3>
+                        <span class="breadcrumb"><a href="#">Home</a> > Login</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="d-flex justify-content-center align-items-center min-vh-100">
+            <div class="wrapper alert alert-success">
+                <form action="LoginServlet" method="post" class="p-3 pt-1 text-dark">
                     <h1 class="fs-2 text-center mb-4">Login</h1>
                     <span class="error">${error}</span>
                     <div class="mb-3 position-relative">
@@ -43,18 +55,19 @@
                         <input name="password" type="password" class="form-control" placeholder="Password" required>
                         <i class="fas fa-lock position-absolute top-50 end-0 me-3 translate-middle-y"></i>
                     </div>
-                    <div class="d-flex justify-content-between mb-3">
+                    <div class="d-flex justify-content-between gap-1 mb-3">
                         <label><input type="checkbox" name="remember"> Remember me</label>
-                        <a href="#" class="text-light">Forgot password?</a>
+                        <a href="#" class="text-dark">Forgot password?</a>
                     </div>
                     <button class="btn btn-primary w-100 mb-3" type="submit">Login</button>
-                    <div class="text-center">
+                    <div class="d-flex justify-content-center gap-1">
                         <span>Don't have an account?</span>
-                        <a href="register.jsp" class="text-light">Register</a>
+                        <a href="register.jsp" class="text-dark">Register</a>
                     </div>
                 </form>
             </div>
         </div>
+                    
         <%@include file="./inc/footer.jsp" %>
     </body>
 </html>

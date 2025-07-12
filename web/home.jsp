@@ -17,10 +17,10 @@
 
         <!-- Additional CSS Files -->
         <link rel="stylesheet" href="assets/css/fontawesome.css">
-        <link rel="stylesheet" href="assets/css/templatemo-lugx-gaming.css">
+        <link rel="stylesheet" href="assets/css/templatemo-lugx-gaming.css?v=2">
         <link rel="stylesheet" href="assets/css/owl.css">
         <link rel="stylesheet" href="assets/css/animate.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/style.css?v=3">
         <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
         <!--
         
@@ -133,7 +133,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="main-button">
-                            <a href="shop.html">View All</a>
+                            <a href="ShopServlet">View All</a>
                         </div>
                     </div>
                     <c:forEach var="product" items="${HotProductList}">
@@ -148,7 +148,16 @@
                                 <div class="down-content">
                                     <span class="category">${Categories[product.categoryId]}</span>
                                     <h4 class="truncate" title="${product.name}">${product.name}</h4>
-                                    <a href="ProductServlet?productId=${product.id}"><i class="fa fa-shopping-bag"></i></a>
+                                    <form id="add-to-cart-${product.id}" action="CartServlet" method="post">
+                                        <input type="hidden" name="action" value="create">
+                                        <input type="hidden" name="productId" value="${product.id}">
+                                        <input type="hidden" name="price" value="${product.price}">
+                                        <input type="hidden" name="quantity" value="1">
+
+                                        <a href="#" onclick="document.getElementById('add-to-cart-${product.id}').submit(); return false;">
+                                            <i class="fa fa-shopping-bag"></i>
+                                        </a>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -168,81 +177,25 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="main-button">
-                            <a href="shop.html">View All</a>
+                            <a href="ShopServlet">View All</a>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="product-details.html"><img src="assets/images/top-game-01.jpg" alt=""></a>
-                            </div>
-                            <div class="down-content">
-                                <span class="category">Adventure</span>
-                                <h4>Assasin Creed</h4>
-                                <a href="product-details.html">Explore</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="product-details.html"><img src="assets/images/top-game-02.jpg" alt=""></a>
-                            </div>
-                            <div class="down-content">
-                                <span class="category">Adventure</span>
-                                <h4>Assasin Creed</h4>
-                                <a href="product-details.html">Explore</a>
+                    <c:forEach var="product" items="${NewProductList}">
+                        <div class="col-lg-2 col-md-6 col-sm-6">
+                            <div class="item">
+                                <div class="thumb">
+                                    <a href="ProductServlet?productId=${product.id}">
+                                        <img src="${product.thumbnail}" alt="Hot Product Image" class="thumbnail-img">
+                                    </a>
+                                </div>
+                                <div class="down-content">
+                                    <span class="category">${Categories[product.categoryId]}</span>
+                                    <h4 class="truncate">${product.name}</h4>
+                                    <a href="ProductServlet?productId=${product.id}">Explore</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="product-details.html"><img src="assets/images/top-game-03.jpg" alt=""></a>
-                            </div>
-                            <div class="down-content">
-                                <span class="category">Adventure</span>
-                                <h4>Assasin Creed</h4>
-                                <a href="product-details.html">Explore</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="product-details.html"><img src="assets/images/top-game-04.jpg" alt=""></a>
-                            </div>
-                            <div class="down-content">
-                                <span class="category">Adventure</span>
-                                <h4>Assasin Creed</h4>
-                                <a href="product-details.html">Explore</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="product-details.html"><img src="assets/images/top-game-05.jpg" alt=""></a>
-                            </div>
-                            <div class="down-content">
-                                <span class="category">Adventure</span>
-                                <h4>Assasin Creed</h4>
-                                <a href="product-details.html">Explore</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="item">
-                            <div class="thumb">
-                                <a href="product-details.html"><img src="assets/images/top-game-06.jpg" alt=""></a>
-                            </div>
-                            <div class="down-content">
-                                <span class="category">Adventure</span>
-                                <h4>Assasin Creed</h4>
-                                <a href="product-details.html">Explore</a>
-                            </div>
-                        </div>
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>
@@ -256,46 +209,16 @@
                             <h2>Top Categories</h2>
                         </div>
                     </div>
-                    <div class="col-lg col-sm-6 col-xs-12">
-                        <div class="item">
-                            <h4>Action</h4>
-                            <div class="thumb">
-                                <a href="product-details.html"><img src="assets/images/categories-01.jpg" alt=""></a>
+                    <c:forEach var="category" items="${TopCategories}">
+                        <div class="col-lg col-sm-6 col-xs-12">
+                            <div class="item">
+                                <h4>${category.name}</h4>
+                                <div class="thumb">
+                                    <a href="CategoryServlet?categoryId=${category.id}"><img src="${category.thumbnail}" alt="" class="thumbnail-img"></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg col-sm-6 col-xs-12">
-                        <div class="item">
-                            <h4>Action</h4>
-                            <div class="thumb">
-                                <a href="product-details.html"><img src="assets/images/categories-05.jpg" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg col-sm-6 col-xs-12">
-                        <div class="item">
-                            <h4>Action</h4>
-                            <div class="thumb">
-                                <a href="product-details.html"><img src="assets/images/categories-03.jpg" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg col-sm-6 col-xs-12">
-                        <div class="item">
-                            <h4>Action</h4>
-                            <div class="thumb">
-                                <a href="product-details.html"><img src="assets/images/categories-04.jpg" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg col-sm-6 col-xs-12">
-                        <div class="item">
-                            <h4>Action</h4>
-                            <div class="thumb">
-                                <a href="product-details.html"><img src="assets/images/categories-05.jpg" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>

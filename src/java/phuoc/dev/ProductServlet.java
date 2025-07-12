@@ -6,6 +6,7 @@ package phuoc.dev;
 
 import java.io.IOException;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.HashMap;
@@ -21,6 +22,7 @@ import phuoc.dev.data.model.Product;
  *
  * @author Admin
  */
+@WebServlet("/ProductServlet")
 public class ProductServlet extends BaseServlet {
 
     @Override

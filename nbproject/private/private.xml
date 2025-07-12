@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Code/phuoc_tap_lap_trinh/Lugx/src/java/phuoc/dev/HomeServlet.java</file>
-            <file>file:/D:/Code/phuoc_tap_lap_trinh/Lugx/src/java/phuoc/dev/data/impl/ProductImpl.java</file>
-            <file>file:/D:/Code/phuoc_tap_lap_trinh/Lugx/src/java/phuoc/dev/Main.java</file>
+            <file>file:/D:/Code/phuoc_tap_lap_trinh/Lugx/web/assets/css/style.css</file>
+            <file>file:/D:/Code/phuoc_tap_lap_trinh/Lugx/web/inc/header.jsp</file>
             <file>file:/D:/Code/phuoc_tap_lap_trinh/Lugx/web/home.jsp</file>
-            <file>file:/D:/Code/phuoc_tap_lap_trinh/Lugx/web/index_1.html</file>
-            <file>file:/D:/Code/phuoc_tap_lap_trinh/Lugx/src/java/phuoc/dev/data/impl/CategoryImpl.java</file>
+            <file>file:/D:/Code/phuoc_tap_lap_trinh/Lugx/web/product.jsp</file>
+            <file>file:/D:/Code/phuoc_tap_lap_trinh/Lugx/src/java/phuoc/dev/CartServlet.java</file>
+            <file>file:/D:/Code/phuoc_tap_lap_trinh/Lugx/web/admin/inc/navbar.jsp</file>
+            <file>file:/D:/Code/phuoc_tap_lap_trinh/Lugx/web/admin/inc/sidebar.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -17,7 +17,7 @@ public class UserImpl implements UserDAO {
     @Override
     public boolean insert(User user) {
         // TODO Auto-generated method stub
-        String sql = "INSERT INTO USERS(ID, EMAIL, PASSWORD, ROLE) VALUES(null, ?, ?, ?)";
+        String sql = "INSERT INTO USERS(ID, EMAIL, PASSWORD, ROLE) VALUES(null, ?, MD5(?), ?)";
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, user.getEmail());
@@ -35,7 +35,7 @@ public class UserImpl implements UserDAO {
     @Override
     public boolean update(User user) {
         // TODO Auto-generated method stub
-        String sql = "UPDATE USERS SET email = ? ,password = ?, role = ? WHERE id = ?";
+        String sql = "UPDATE USERS SET email = ? ,password = MD5(?), role = ? WHERE id = ?";
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, user.getEmail());
@@ -113,7 +113,7 @@ public class UserImpl implements UserDAO {
 
     @Override
     public User find(String email, String password) {
-        String sql = "SELECT * FROM USERS WHERE EMAIL = ? AND PASSWORD = ?";
+        String sql = "SELECT * FROM USERS WHERE EMAIL = ? AND PASSWORD = MD5(?)";
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, email);
@@ -150,6 +150,19 @@ public class UserImpl implements UserDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public void updateSecretKey(String email, String secretKey) {
+        String sql = "UPDATE USERS SET secret_key = ? WHERE userId = ?";
+        try {
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, secretKey);
+            stmt.setString(2, email);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }
