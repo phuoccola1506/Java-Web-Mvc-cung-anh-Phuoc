@@ -1,6 +1,7 @@
 package phuoc.dev.data.dao;
 
 import phuoc.dev.data.impl.CategoryImpl;
+import phuoc.dev.data.impl.DiscountCodeImpl;
 import phuoc.dev.data.impl.OrderImpl;
 import phuoc.dev.data.impl.OrderItemImpl;
 import phuoc.dev.data.impl.ProductImpl;
@@ -36,6 +37,12 @@ public class Database extends DatabaseDao {
     public UserDAO getUserDao() {
         // TODO Auto-generated method stub
         return new UserImpl();
+    }
+
+    @Override
+    public DiscountCodeDao getDiscountCodeDao() {
+        // TODO Auto-generated method stub
+        return new DiscountCodeImpl();
     }
 
 }

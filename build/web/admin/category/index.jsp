@@ -22,6 +22,7 @@
         <!-- Icon Font Stylesheet -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/df02104330.js" crossorigin="anonymous"></script>
 
         <!-- Libraries Stylesheet -->
         <link href="./assets/admin/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -74,7 +75,7 @@
                                                     <td><img src="${category.thumbnail}" alt="alt" class="thumbnail-img"></td>
                                                     <td>${category.name}</td>
                                                     <td>
-                                                        <div class="d-flex gap-1">
+                                                        <div class="d-flex justify-content-center gap-1">
                                                             <a class="btn btn-secondary" href="EditCategoryServlet?categoryId=${category.id}">Edit</a>
                                                             <form action="DeleteCategoryServlet" method="POST">
                                                                 <input type="hidden" name="categoryId" value="${category.id}"/>

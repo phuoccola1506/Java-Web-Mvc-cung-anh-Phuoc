@@ -147,26 +147,30 @@
                                     <span class="cart-subtotal-text">$${total}</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-2">
-                                    <span>Transportation Fee:</span>
-                                    <span>50,000₫</span>
-                                </div>
-                                <div class="d-flex justify-content-between mb-2">
                                     <span>Discount:</span>
-                                    <span class="text-success">-100,000₫</span>
+                                    <span class="text-success">
+                                        $<fmt:formatNumber value="${discountValue}" type="number" maxFractionDigits="2" minFractionDigits="2"/>
+                                    </span>
                                 </div>
                                 <hr>
                                 <div class="d-flex justify-content-between mb-3">
                                     <strong>Cart Total:</strong>
-                                    <strong class="text-primary fs-5 cart-total-text">$${total}</strong>
+                                    <strong class="text-primary fs-5 cart-total-text">
+                                        $<fmt:formatNumber value="${finalTotal}" type="number" maxFractionDigits="2" minFractionDigits="2"/>
+                                    </strong>
                                 </div>
 
                                 <!-- Discount Code -->
                                 <div class="mb-3">
-                                    <label for="discountCode" class="form-label">Discount code:</label>
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" id="discountCode" placeholder="">
-                                        <button class="btn btn-outline-secondary" type="button">Apply</button>
-                                    </div>
+                                    <form action="CartServlet" method="post">
+                                        <input type="hidden" name="action" value="applyDiscount" />
+                                        <label for="discountCode" class="form-label">Discount code:</label>
+                                        <div class="input-group">
+                                            <input type="text" name="discountCode" class="form-control" id="discountCode" placeholder="Enter code here" value="<c:out value='${discountCode}'/>">
+                                            <button id="applyDiscountBtn" class="btn btn-outline-secondary" type="submit">Apply</button>
+                                            <p id="discountMessage"></p>
+                                        </div>
+                                    </form>
                                 </div>
 
                                 <!-- Checkout Button -->

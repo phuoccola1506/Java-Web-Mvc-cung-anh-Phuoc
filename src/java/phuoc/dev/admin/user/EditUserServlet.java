@@ -4,7 +4,7 @@
  */
 package phuoc.dev.admin.user;
 
-import phuoc.dev.BaseServlet;
+import phuoc.dev.controller.BaseServlet;
 import phuoc.dev.data.dao.DatabaseDao;
 import phuoc.dev.data.dao.UserDAO;
 import phuoc.dev.data.model.User;

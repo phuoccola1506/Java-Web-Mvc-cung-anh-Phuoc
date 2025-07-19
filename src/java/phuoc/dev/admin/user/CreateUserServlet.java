@@ -4,7 +4,7 @@
  */
 package phuoc.dev.admin.user;
 
-import phuoc.dev.BaseServlet;
+import phuoc.dev.controller.BaseServlet;
 import phuoc.dev.data.dao.DatabaseDao;
 import phuoc.dev.data.dao.UserDAO;
 import phuoc.dev.data.model.User;
@@ -53,7 +53,7 @@ public class CreateUserServlet extends BaseServlet {
             request.getRequestDispatcher("admin/user/create.jsp").forward(request, response);
         } else {
             // Xử lý thông tin đăng ký hợp lệ
-            user = new User(email, password, role);
+            user = new User(email, password, role, null);
             userDao.insert(user);
             response.sendRedirect("IndexUserServlet");
         }

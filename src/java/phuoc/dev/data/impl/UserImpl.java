@@ -78,8 +78,9 @@ public class UserImpl implements UserDAO {
                 String email = rs.getString("email");
                 String password = rs.getString("password");
                 String role = rs.getString("role");
+                String secretKey = rs.getString("secret_key");
 
-                return new User(id, email, password, role);
+                return new User(id, email, password, role, secretKey);
             }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -101,8 +102,9 @@ public class UserImpl implements UserDAO {
                 String email = rs.getString("email");
                 String password = rs.getString("password");
                 String role = rs.getString("role");
+                String secretKey = rs.getString("secret_key");
 
-                users.add(new User(id, email, password, role));
+                users.add(new User(id, email, password, role, secretKey));
             }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -123,7 +125,9 @@ public class UserImpl implements UserDAO {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String role = rs.getString("role");
-                return new User(id, email, password, role);
+                String secretKey = rs.getString("secret_key");
+                
+                return new User(id, email, password, role, secretKey);
             }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -143,7 +147,9 @@ public class UserImpl implements UserDAO {
                 int id = rs.getInt("id");
                 String password = rs.getString("password");
                 String role = rs.getString("role");
-                return new User(id, email, password, role);
+                String secretKey = rs.getString("secret_key");
+                
+                return new User(id, email, password, role, secretKey);
             }
         } catch (SQLException e) {
             // TODO Auto-generated catch block
@@ -154,7 +160,7 @@ public class UserImpl implements UserDAO {
 
     @Override
     public void updateSecretKey(String email, String secretKey) {
-        String sql = "UPDATE USERS SET secret_key = ? WHERE userId = ?";
+        String sql = "UPDATE USERS SET secret_key = ? WHERE email = ?";
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, secretKey);

@@ -44,9 +44,16 @@
                 </div>
             </div>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>Orders</a>
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa-regular fa-credit-card me-2"></i>Orders</a>
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="IndexOrderServlet" class="dropdown-item">All</a>
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-chart-bar me-2"></i>Reports</a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="OrderByMonthServlet" class="dropdown-item">Order By Month</a>
+                    <a href="ProductPiechartServlet" class="dropdown-item">Sold Product By Month</a>
                 </div>
             </div>
         </div>

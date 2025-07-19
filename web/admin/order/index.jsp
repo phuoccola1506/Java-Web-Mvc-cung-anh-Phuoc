@@ -22,6 +22,7 @@
         <!-- Icon Font Stylesheet -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/df02104330.js" crossorigin="anonymous"></script>
 
         <!-- Libraries Stylesheet -->
         <link href="./assets/admin/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -54,29 +55,29 @@
                     <div class="row g-4">
                         <div class="col-12">
                             <div class="bg-light rounded h-100 p-4">
-                                <h6 class="mb-4">List orders</h6>
+                                <h5 class="mb-4">List orders</h5>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th scope="col">#</th>
+                                                <th scope="col">ID</th>
                                                 <th scope="col">Code</th>
                                                 <th scope="col">Status</th>
                                                 <th scope="col">User</th>
-                                                <th scope="col">#</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <c:set var="i" value="0"/>
                                             <c:forEach items="${orderList}" var="order">
-                                            <c:set var="i" value="${i+1}"/>
+                                                <c:set var="i" value="${i+1}"/>
                                                 <tr>
                                                     <td scope="row">${i}</td>
                                                     <td>
                                                         <a href="IndexOrderItemServlet?orderId=${order.id}">${order.code}</a>
                                                     </td>
                                                     <td>${order.status}</td>
-                                                    <td>${order.user.email}</td>
+                                                    <td>${userMap[order.userId].email}</td>
                                                     <td>
                                                         <a href="EditOrderServlet?orderId=${order.id}">Edit</a>
                                                     </td>

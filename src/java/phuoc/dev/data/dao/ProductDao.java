@@ -1,6 +1,7 @@
 package phuoc.dev.data.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import phuoc.dev.data.model.Product;
 
@@ -31,6 +32,8 @@ public interface ProductDao {
     public List<Product> relatedProductList(Product product);
     
     public List<Product> getProducts(int from, int amount);
+    
+    public Map<String, Integer> getSoldProductsPercentage(int year, int month);
     
     public boolean updateView(Product product);
 

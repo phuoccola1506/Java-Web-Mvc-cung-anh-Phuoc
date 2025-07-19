@@ -22,6 +22,7 @@
         <!-- Icon Font Stylesheet -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/df02104330.js" crossorigin="anonymous"></script>
 
         <!-- Libraries Stylesheet -->
         <link href="./assets/admin/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -54,7 +55,7 @@
                     <div class="row g-4">
                         <div class="col-12">
                             <div class="bg-light rounded h-100 p-4">
-                                <h6 class="mb-4">List userss</h6>
+                                <h5 class="mb-4">List userss</h5>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>

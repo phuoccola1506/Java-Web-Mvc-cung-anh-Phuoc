@@ -6,7 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import phuoc.dev.data.dao.ProductDao;
 import phuoc.dev.data.driver.MySQLDriver;
 import phuoc.dev.data.model.Product;
@@ -65,7 +67,6 @@ public class ProductImpl implements ProductDao {
         }
         return false;
     }
-    
 
     @Override
     public boolean delete(int id) {
@@ -168,7 +169,7 @@ public class ProductImpl implements ProductDao {
     }
 
     @Override
-    public List<Product> hot( int limit) {
+    public List<Product> hot(int limit) {
         List<Product> proList = new ArrayList<>();
         String sql = "SELECT * FROM PRODUCTS ORDER BY VIEW DESC LIMIT ?";
         try {
@@ -285,23 +286,6 @@ public class ProductImpl implements ProductDao {
     }
 
     @Override
-    public boolean updateView(Product product) {
-        String sql = "UPDATE PRODUCTS SET view = ? WHERE id = ?";
-        try {
-            PreparedStatement stmt = con.prepareStatement(sql);
-            
-            stmt.setInt(1, product.getView()+1);
-            stmt.setInt(2, product.getId());
-
-            return stmt.execute();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    @Override
     public List<Product> news(int limit) {
         List<Product> proList = new ArrayList<>();
         String sql = "SELECT * FROM PRODUCTS ORDER BY VIEW DESC LIMIT ?";
@@ -368,9 +352,9 @@ public class ProductImpl implements ProductDao {
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setInt(1, from);
             stmt.setInt(2, amount);
-            
+
             ResultSet rs = stmt.executeQuery();
-            
+
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
@@ -389,5 +373,46 @@ public class ProductImpl implements ProductDao {
             e.printStackTrace();
         }
         return proList;
+    }
+
+    public Map<String, Integer> getSoldProductsPercentage(int month, int year) {
+        Map<String, Integer> productSalesMap = new LinkedHashMap<>();
+
+        String sql = "SELECT p.name, SUM(oi.quantity) AS total_quantity "
+                + "FROM orders o "
+                + "JOIN order_items oi ON o.id = oi.order_id "
+                + "JOIN products p ON p.id = oi.product_id "
+                + "WHERE MONTH(o.created_at) = ? AND YEAR(o.created_at) = ? "
+                + "GROUP BY p.name";
+
+        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+            stmt.setInt(1, month);
+            stmt.setInt(2, year);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    String productName = rs.getString("name");
+                    int quantity = rs.getInt("total_quantity");
+                    productSalesMap.put(productName, quantity);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return productSalesMap;
+    }
+
+    @Override
+    public boolean updateView(Product product) {
+        String sql = "UPDATE PRODUCTS SET view = view + 1 WHERE id = ?";
+        try {
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, product.getId());
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

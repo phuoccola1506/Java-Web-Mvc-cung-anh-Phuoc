@@ -68,7 +68,7 @@
                     </div>
                     <div class="col-lg-6 align-self-center">
                         <h4>${product.name}</h4>
-                        <span class="price"><em>$28</em> ${product.price}</span>
+                        <span class="price"><em>$${product.price + 20}</em> $${product.price}</span>
                         <p>${product.description}</p>
                         <form action="CartServlet" method="post">
                             <input type="hidden" name="action" value="create">

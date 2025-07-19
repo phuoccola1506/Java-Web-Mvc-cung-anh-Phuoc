@@ -22,11 +22,12 @@
         <!-- Icon Font Stylesheet -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/df02104330.js" crossorigin="anonymous"></script>
 
         <!-- Libraries Stylesheet -->
         <link href="assets/admin/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="assets/admin/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
+        
         <!-- Customized Bootstrap Stylesheet -->
         <link href="assets/admin/css/bootstrap.min.css" rel="stylesheet">
 

@@ -21,5 +21,7 @@ public abstract class DatabaseDao {
     public abstract OrderDao getOrderDao();
 
     public abstract UserDAO getUserDao();
+    
+    public abstract DiscountCodeDao getDiscountCodeDao();
 
 }

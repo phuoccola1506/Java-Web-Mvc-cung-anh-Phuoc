@@ -8,19 +8,19 @@ public class User {
     private String role;
     private String secretKey;
 
-    public User(String email, String password, String role) {
-        super();
+    public User(String email, String password, String role, String secretKey) {
         this.email = email;
         this.password = password;
         this.role = role;
+        this.secretKey = secretKey;
     }
 
-    public User(int id, String email, String password, String role) {
-        super();
+    public User(int id, String email, String password, String role, String secretKey) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.role = role;
+        this.secretKey = secretKey;
     }
 
     public int getId() {

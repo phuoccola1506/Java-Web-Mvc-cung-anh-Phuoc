@@ -4,7 +4,7 @@
  */
 package phuoc.dev.admin.user;
 
-import phuoc.dev.BaseServlet;
+import phuoc.dev.controller.BaseServlet;
 import phuoc.dev.data.dao.DatabaseDao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
